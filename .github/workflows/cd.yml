@@ -22,7 +22,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           port: 22
           script: |
-            cd ~/home/project/directus/porto-be
+            cd ~/project/directus/porto-be
             git pull origin main
             git status
             sudo docker compose up --build -d
