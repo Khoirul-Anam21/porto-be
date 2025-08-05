@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  directus:
+    image: directus/directus:latest
+    container_name: directus_app
+    restart: unless-stopped
+    ports:
+      - "8055:8055"
+    env_file:
+      - .env
+    # depends_on:
+    #   - database
+    volumes:
+      - directus_uploads:/directus/uploads
+
+  # database:
+  #   image: mysql:8
+  #   container_name: directus_db
+  #   restart: unless-stopped
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: anampass123
+  #     MYSQL_DATABASE: db_porto
+  #     MYSQL_USER: anamuser
+  #     MYSQL_PASSWORD: anampass123
+  #   volumes:
+  #     - db_data:/var/lib/mysql
+  #   ports:
+  #     - "3308:3306"
+
+volumes:
+  directus_uploads:
+  # db_data:
